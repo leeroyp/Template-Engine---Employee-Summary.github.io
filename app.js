@@ -12,45 +12,6 @@ const render = require("./lib/htmlRenderer");
 
 
 const Employees = []
-// function promptUser() {
-//     return
-     inquirer.prompt([
-        {
-            type: "input",
-            message: "Enter your first name:",
-            name: "name"
-        },
-        {
-            type: "input",
-            message: "Enter your email adress",
-            name: "emai"
-
-
-        },
-        {
-            type: "checkbox",
-            message: "What is your role in the company",
-            name: "position",
-            choices:
-                [
-                   { name:"manager" ,value:0},
-                    {name:"engineer",value:1},
-                    {name:"inter", value:2}
-                ]
-        },
-        {
-            type: "input",
-            message: "Enter your github username:",
-            name: "username"
-        }
-
-    ])
-// }
-.then((responses) => {
-    if (responses.position === 0) {
-        console.log("You are probably smart");
-    }
-})
 
 const opening = [
     {
@@ -60,6 +21,7 @@ const opening = [
         choices: ["YES", "NO"]
     }
 ];
+
 const askEmployees = [
     {
         type: "input",
@@ -84,13 +46,15 @@ const askEmployees = [
     }
 ];
 
-const askManager = [
-    {
-        type: "input",
-        message: "What is the Manager's Office #?",
-        name: "office"
-    }
-];
+
+    const askManager = [
+        {
+            type: "input",
+            message: "What is the Manager's Office #?",
+            name: "office"
+        }
+    ];
+
 
 const askEngineer = [
     {
@@ -117,7 +81,7 @@ const newMember = [
     }
 ];
 
-async function makeTeams() {
+async function makeRoster() {
     await inquirer
         .prompt(askEmployees)
         .then(async function (answers) {
@@ -161,7 +125,7 @@ async function makeTeams() {
         })
 };
 
-makeTeams();
+makeRoster();
 
 
 // Write code to use inquirer to gather information about the development team members,
