@@ -82,6 +82,7 @@ const newMember = [
 ];
 
 async function makeRoster() {
+  
     await inquirer
         .prompt(askEmployees)
         .then(async function (answers) {
@@ -108,6 +109,7 @@ async function makeRoster() {
            
         })
 
+
         await inquirer
         .prompt(newMember)
         .then(async function (answers) {
@@ -115,8 +117,8 @@ async function makeRoster() {
                 makeRoster();
             } 
             else {
-                template = render(Employees);
-                fs.writeFile(outputPath, template, err => {
+                employeeInfo = render(Employees);
+                fs.writeFile("./output/team.html", employeeInfo, err => {
                     if (err) {
                         throw err;
                     } console.log("Successfully written to team.html file");
